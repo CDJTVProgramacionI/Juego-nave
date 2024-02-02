@@ -49,6 +49,7 @@ void setupConsole()
     }   
 }
 
+//Show all the posible colors
 void testAllColors()
 {
     int color_index;
@@ -64,11 +65,13 @@ void testAllColors()
     }
 }
 
+//Set text to a diferent color
 void changeTextColor(color selected_color)
 {
     printf("\e[%dm", selected_color);
 }
 
+//Set background to a diferent color
 void changeBgColor(color selected_color)
 {
     //selected color is intended for text
@@ -77,8 +80,9 @@ void changeBgColor(color selected_color)
     printf("\e[%dm", backgroundColor);
 }
 
+//Black BG color, white text color
 void resetFormat()
 {
-    printf("\e[0m"); //Black BG color, white text color
+    printf("\e[0m"); 
 }
 #endif
