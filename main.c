@@ -115,18 +115,17 @@ void main()
                             break;
                     }
                 } while (op != 'e' && op != 'E' && op != 'S' && op != 's');
-                
                 break;
             //Objeto de interés
             case 2:
                 printf("Un " MAGENTA "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
-                printf("Que desea hacer.\n");
-                printf("Presione [C] para capturar y [E] para esquivar\n");
-                op = getch();
-
                 do
                 {
+                    printf("Que desea hacer.\n");
+                    printf("Presione [C] para capturar y [E] para esquivar\n");
+                    op = getch();
+
                     switch (op)
                     {
                         //Decisiones para capturar o esquivar
