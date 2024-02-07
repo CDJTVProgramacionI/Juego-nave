@@ -99,9 +99,18 @@ void main()
         else if (distancia<6000)
         printf("Desea agarrar un objeto de interes");
 
+        //Display
+        	int vida,velocidad,misiles;
+	scanf("%d%d%d",&vida,&velocidad,&capsulas);
+	
+	if  (vida>0)
+	{
+	printf("Vida restante: %d \n",vida);
+	printf("Tu velocidad es: %d \n", velocidad);
+	printf("Misiles restantes: %d \n", capsulas);
+    }
+
     
-
-
         //Decisiones para capsulas
     } 
 }
