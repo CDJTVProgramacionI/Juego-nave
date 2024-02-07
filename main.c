@@ -25,6 +25,36 @@ void main()
     while(/*condicion para NO perder*/ 1 /*contador de tiempo u obstáculos*/)
     {
         //Display de vidas, velocidad y misiles
+        int totcapsulas=2000,totmisiles=8000;
+	char decision;
+	float distancia,velocidad;
+	switch(decision)
+	{
+		/*a=capturar objetos
+		b=destruir planetas*/
+		case 'a':
+			if(distancia<=6000)
+			{
+				totcapsulas=totcapsulas+5;break;
+			}
+			else
+			{
+				totcapsulas=totcapsulas-3;break;
+			}
+		case 'b':
+			if(distancia<=8000 && velocidad>=12000)
+			{
+				totcapsulas=totcapsulas-25;break;
+				totmisiles=totmisiles-50;break;
+			}
+			else
+			{
+				totcapsulas=totcapsulas-15;break;
+				totmisiles=totmisiles-30;break;
+			}
+			
+	}
+	
 
         //Generar objeto u obstáculo al azar
         int objeto = rand() % 3;
