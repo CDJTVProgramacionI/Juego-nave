@@ -74,41 +74,13 @@ void main()
 
         clearOnKey();
 
-        //Decisiones para evitar o destruir obstáculos
-
-        if (distancia>=10000 && velocidad>12000)
-        printf("Se esquivo el planeta.");
-        else if (distancia>=8000 && distancia<10000)
-        {
-            //Obtener input del usuario
-            printf("Que desea hacer.\n");
-            printf("Presione 1 para Esquivar y 2 para destruir\n");
-            scanf("%d",&op);
-            switch (op)
-            {
-            case 1:
-                printf("Se esquivo el planeta.");break;
-            case 2: 
-                printf("Se destruyo el planeta.");break;
-            default:
-                printf("No presiono una opcion correcta.");break;
-            }
-        }
-        else if (distancia<8000)
-        printf("Se ha estrellado con el planeta");
-        else if (distancia<6000)
-        printf("Desea agarrar un objeto de interes");
 
         //Display
-        	int vida,velocidad,misiles;
-	scanf("%d%d%d",&vida,&velocidad,&capsulas);
-	
-	if  (vida>0)
-	{
-	printf("Vida restante: %d \n",vida);
-	printf("Tu velocidad es: %d \n", velocidad);
-	printf("Misiles restantes: %d \n", capsulas);
-    }
+        int vida,misiles, capsulas;
+
+        printf("Vida restante: %d \n",vida);
+        printf("Tu velocidad es: %d \n", velocidad);
+        printf("Misiles restantes: %d \n", capsulas);
 
     
         //Decisiones para capsulas
