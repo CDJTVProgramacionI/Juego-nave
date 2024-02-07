@@ -33,54 +33,56 @@ void main()
         velocidad = (rand() % 8 + 5) * 1000;
 
         //Generar objeto u obstáculo al azar
-        int objeto = rand() % 3;
+        int objeto = 0;//rand() % 3;
 
         //Display
-        printf("Vida restante: %d \n",vida);
-        printf("Tu velocidad es: %d \n", velocidad);
-        printf("Misiles restantes: %d \n", misiles);	
+        printf(MAGENTA "Vida restante: %d \n",vida);
+        printf(CYAN "Tu velocidad es: %d \n", velocidad);
+        printf(YELLOW "Misiles restantes: %d \n", misiles);	
         
 
         switch(objeto)
         {
-            //Planeta con vida
-            case 0:
-                printf("Un " BLUE "PLANETA SIN VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
-                //Obtener input del usuario
-                printf("Que desea hacer.\n");
-                printf("Presione 1 para Esquivar y 2 para destruir\n");
-                scanf("%d",&op);
-                switch (op)
-                {
-                    //Decisiones para evitar o destruir obstáculos
-                    case 1:
-                        if (distancia>=8000 && distancia< 10000 && velocidad > 12000 || distancia >= 10000)
-                            printf("Se esquivo el planeta.");
-                        else
-                            printf("Se ha estrellado con el planeta");
-                            vida -= 15;
-				            misiles -= 30;
-                        break;
-                    case 2: 
-                        if (distancia<=8000 && velocidad > 12000)
-                        {
-                            printf("Se destruyo el planeta.");
-                            vida -= 25;
-				            misiles -= 50;
-                        }
-                        else
-                        {
-                            printf("Se ha estrellado con el planeta");
-                            vida -= 15;
-				            misiles -= 30;
-                        }
-                        break;
-                    default:
-                        printf("No presiono una opcion correcta.");
-                        break;
-                }
-                break;
             //Planeta sin vida
+            case 0:
+                printf(RESET "Un " BLUE "PLANETA SIN VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
+                //Obtener input del usuario
+                do
+                {
+                    printf("Que desea hacer?\n");
+                    printf("Presione 1 para esquivar y 2 para destruir\n");
+                    scanf("%d",&op);
+
+                    switch (op)
+                    {
+                        //Decisiones para evitar o destruir obstáculos
+                        case 1:
+                            if (distancia>=8000 && distancia< 10000 && velocidad >= 12000 || distancia >= 10000)
+                                printf("Se esquivo el planeta.\n");
+                            else
+                                printf("Se ha estrellado con el planeta\n");
+                            break;
+                        case 2: 
+                            if (distancia<=8000 && velocidad > 12000)
+                            {
+                                printf("Se destruyo el planeta.\n");
+                                vida -= 25;
+                                misiles -= 50;
+                            }
+                            else
+                            {
+                                printf("No has podido destruir el planeta\n");
+                                vida -= 15;
+                                misiles -= 30;
+                            }
+                            break;
+                        default:
+                            printf("No presiono una opcion correcta.");
+                            break;
+                    }
+                }while (op != 1 && op != 2);
+                break;
+            //Planeta con vida
             case 1:
                 printf("Un " BRIGHT_GREEN "PLANETA CON VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
@@ -137,6 +139,8 @@ void main()
                 }
                 break;
         }
+
+        clearOnKey();
     } 
 }
 

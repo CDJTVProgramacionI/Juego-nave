@@ -73,6 +73,7 @@ void changeBgColor(int selected_color)
 
 void clearOnKey()
 {
+    printf(WHITE "Presiona enter para continuar...");
     getch();
     printf("\e[1;1H\e[2J");
 }
