@@ -3,26 +3,25 @@
 
 #include <stdio.h>
 #include <Windows.h>
+#include <conio.h>
 
-typedef enum
-{
-    BLACK = 30,
-    RED = 31,
-    GREEN = 32,
-    YELLOW = 33,
-    BLUE = 34,
-    PURPLE = 35,
-    AQUA = 36,
-    BRIGHT_GRAY = 37,
-    GRAY = 90,
-    BRIGHT_RED = 91,
-    BRIGHT_GREEN = 92,
-    BRIGHT_YELLOW = 93,
-    BRIGHT_BLUE = 94,
-    MAGENTA = 95,
-    CYAN = 96,
-    WHITE = 97
-} color;
+#define BLACK "\e[30m"
+#define RED "\e[31m"
+#define GREEN "\e[32m"
+#define YELLOW "\e[33m"
+#define BLUE "\e[34m"
+#define PURPLE "\e[35m"
+#define AQUA "\e[36m"
+#define BRIGHT_GRAY "\e[37m"
+#define GRAY "\e[90m"
+#define BRIGHT_RED "\e[91m"
+#define BRIGHT_GREEN "\e[92m"
+#define BRIGHT_YELLOW "\e[93m"
+#define BRIGHT_BLUE "\e[94m"
+#define MAGENTA "\e[95m"
+#define CYAN "\e[96m"
+#define WHITE "\e[97m"
+#define RESET "\e[0m"
 
 static HANDLE stdoutHandle;
 static DWORD outModeInit;
@@ -65,24 +64,16 @@ void testAllColors()
     }
 }
 
-//Set text to a diferent color
-void changeTextColor(color selected_color)
+//Set background to a diferent color
+void changeBgColor(int selected_color)
 {
+    //A number between 40 - 47 or 100 - 107
     printf("\e[%dm", selected_color);
 }
 
-//Set background to a diferent color
-void changeBgColor(color selected_color)
+void clearOnKey()
 {
-    //selected color is intended for text
-    //adding 10 we select the background instead of text
-    color backgroundColor = selected_color + 10;
-    printf("\e[%dm", backgroundColor);
-}
-
-//Black BG color, white text color
-void resetFormat()
-{
-    printf("\e[0m"); 
+    getch();
+    printf("\e[1;1H\e[2J");
 }
 #endif
