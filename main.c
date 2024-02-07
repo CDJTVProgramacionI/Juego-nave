@@ -54,23 +54,21 @@ void main()
         //Obtener input del usuario
 
         //Decisiones para evitar o destruir obstáculos
-        int de, va;
+        int va;
             printf("Se te ofrecen tomar 3 acciones: 0=destruir, 1=pierdes, 2=capturar, 3=esquivar, 4=seguir adelante\n");
-            printf("Ingrese una velocidad\n");
-            scanf("%d",&de);
-        if (de >=8000 && de<=10000) {
+        if (distancia >=8000 && distancia<=10000) {
         va=(3);
             }
-        else if (de<8000) {
+        else if (distancia<8000) {
         va=(1);
             }
-            else if (de>10000) {
+            else if (distancia>10000) {
         va=(4);
             }
-            else if (de<=6000) {
+            else if (distancia<=6000) {
         va=(2);
             }
-            else if (de>=8000) {
+            else if (distancia>=8000) {
         va=(0);
             }
             printf("Su desicion es: %d", va);
