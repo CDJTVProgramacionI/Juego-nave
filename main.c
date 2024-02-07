@@ -54,26 +54,26 @@ void main()
         //Obtener input del usuario
 
         //Decisiones para evitar o destruir obstáculos
-int de, va;
-    printf("Se te ofrecen tomar 3 acciones: 0=destruir, 1=pierdes, 2=capturar, 3=esquivar, 4=seguir adelante\n");
-    printf("Ingrese una velocidad\n");
-    scanf("%d",&de);
- if (de >=8000 && de<=10000) {
-  va=(3);
-    }
- else if (de<8000) {
-  va=(1);
-     }
-     else if (de>10000) {
-  va=(4);
-     }
-     else if (de<=6000) {
-  va=(2);
-     }
-     else if (de>=8000) {
-  va=(0);
-     }
-     printf("Su desicion es: %d", va);
-        //Decisiones para capsulas
-    } 
+        int de, va;
+            printf("Se te ofrecen tomar 3 acciones: 0=destruir, 1=pierdes, 2=capturar, 3=esquivar, 4=seguir adelante\n");
+            printf("Ingrese una velocidad\n");
+            scanf("%d",&de);
+        if (de >=8000 && de<=10000) {
+        va=(3);
+            }
+        else if (de<8000) {
+        va=(1);
+            }
+            else if (de>10000) {
+        va=(4);
+            }
+            else if (de<=6000) {
+        va=(2);
+            }
+            else if (de>=8000) {
+        va=(0);
+            }
+            printf("Su desicion es: %d", va);
+                //Decisiones para capsulas
+            } 
 }
