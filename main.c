@@ -11,6 +11,8 @@ void main()
     //La función time() nos permite que sea más aleatorio el número
     srand(time(0));
 
+    int op;
+
     /********************
     *      NIVEL 1      * 
     *********************/                  
@@ -38,7 +40,28 @@ void main()
             //Planeta con vida
             case 0:
                 printf("Un " BLUE "PLANETA SIN VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
-                break;
+                //Obtener input del usuario
+                printf("Que desea hacer.\n");
+                printf("Presione 1 para Esquivar y 2 para destruir\n");
+                scanf("%d",&op);
+                switch (op)
+                {
+                    //Decisiones para evitar o destruir obstáculos
+                    case 1:
+                        if (distancia>=8000 && distancia< 10000 && velocidad > 12000 || distancia >= 10000)
+                            printf("Se esquivo el planeta.");
+                        else
+                            printf("Se ha estrellado con el planeta");
+                        break;
+                    case 2: 
+                        if (distancia<=8000 && velocidad > 12000)
+                            printf("Se destruyo el planeta.");
+                        break;
+                    default:
+                        printf("No presiono una opcion correcta.");
+                        break;
+                }
+
             //Planeta sin vida
             case 1:
                 printf("Un " BRIGHT_GREEN "PLANETA CON VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
@@ -51,15 +74,13 @@ void main()
 
         clearOnKey();
 
-        //Obtener input del usuario
-
         //Decisiones para evitar o destruir obstáculos
-        int op;
 
         if (distancia>=10000 && velocidad>12000)
         printf("Se esquivo el planeta.");
         else if (distancia>=8000 && distancia<10000)
         {
+            //Obtener input del usuario
             printf("Que desea hacer.\n");
             printf("Presione 1 para Esquivar y 2 para destruir\n");
             scanf("%d",&op);
