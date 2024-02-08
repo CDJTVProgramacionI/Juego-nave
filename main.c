@@ -28,7 +28,7 @@ void main()
     clearOnKey();
 
     
-    while(/*condicion para NO perder*/ 1 && contdecisiones <= 7)
+    while(misiles >= 7800 && vida >= 1900 && contdecisiones <= 7)
     {
         //Generar una distancia aleatoria al objeto
 
@@ -65,6 +65,7 @@ void main()
                                 printf("Se esquivo el planeta.\n");
                             else
                                 printf("Se ha estrellado con el planeta\n");
+                                vida = 0;
                             break;
                         case 'D': case 'd': 
                             if (distancia<=8000 && velocidad >= 12000)
@@ -78,6 +79,7 @@ void main()
                                 if(distancia > 8000 && distancia <= 10000 && velocidad >= 12000)
                                 {
                                     printf("Debiste haber esquivado\n");
+                                    vida = 0;
                                 }
                                 else
                                 {
@@ -111,11 +113,17 @@ void main()
                                 printf("Se esquivo el planeta.\n");
                             else
                                 printf("Se ha estrellado con el planeta\n");
+                                vida = 0;
                             break;
                         case 's': case 'S': 
                             if (distancia <= 8000 || (distancia > 8000 && distancia < 10000 && velocidad >= 12000))
                             {
                                 printf("Se ha estrellado con el planeta\n");
+                                vida = 0;
+                            }
+                            else
+                            {
+                                printf("Siga adelante");
                             }
                             break;
                         default:
