@@ -33,16 +33,15 @@ void main()
         distancia = (rand() % 12 + 1) * 1000;
         velocidad = (rand() % 15 + 1) * 1000;
 
-        //Generar objeto u obstáculo al azar
-        int objeto = rand() % 3;
-
         //Display
         printf(MAGENTA "Vida restante: %d \n",vida);
         printf(CYAN "Tu velocidad es: %d \n", velocidad);
         printf(YELLOW "Misiles restantes: %d \n", misiles);
 
         printf(RESET);	
-        
+
+        //Generar objeto u obstáculo al azar
+        int objeto = rand() % 3;
 
         switch(objeto)
         {
@@ -60,13 +59,13 @@ void main()
                     {
                         //Decisiones para evitar o destruir obstáculos
                         case 'E': case 'e':
-                            if (distancia>=8000 && distancia< 10000 && velocidad >= 12000 || distancia >= 10000)
+                            if (distancia > 8000)
                                 printf("Se esquivo el planeta.\n");
                             else
                                 printf("Se ha estrellado con el planeta\n");
                             break;
                         case 'D': case 'd': 
-                            if (distancia<=8000 && velocidad > 12000)
+                            if (distancia<=8000 && velocidad >= 12000)
                             {
                                 printf("Se destruyo el planeta.\n");
                                 vida -= 25;
@@ -74,9 +73,16 @@ void main()
                             }
                             else
                             {
-                                printf("No has podido destruir el planeta\n");
-                                vida -= 15;
-                                misiles -= 30;
+                                if(distancia > 8000 && distancia <= 10000 && velocidad >= 12000)
+                                {
+                                    printf("Debiste haber esquivado\n");
+                                }
+                                else
+                                {
+                                    printf("No has podido destruir el planeta\n");
+                                    vida -= 15;
+                                    misiles -= 30;
+                                }
                             }
                             break;
                         default:
@@ -99,15 +105,15 @@ void main()
                     {
                         //Decisiones para evitar o destruir obstáculos
                         case 'e': case 'E':
-                            if (distancia>=8000 && distancia< 10000 && velocidad > 12000 || distancia >= 10000)
+                            if (distancia > 8000)
                                 printf("Se esquivo el planeta.\n");
                             else
                                 printf("Se ha estrellado con el planeta\n");
                             break;
                         case 's': case 'S': 
-                            if (distancia < 8000)
+                            if (distancia <= 8000 || (distancia > 8000 && distancia < 10000 && velocidad >= 12000))
                             {
-                                printf("Perdiste");
+                                printf("Se ha estrellado con el planeta\n");
                             }
                             break;
                         default:
