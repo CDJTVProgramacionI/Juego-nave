@@ -19,14 +19,16 @@ void main()
     *      NIVEL 1      * 
     *********************/                  
     //Valores iniciales de vidas, velocidad y misiles
-    vida = 2000, misiles = 8000;
+    vida = 2000,
+    misiles = 8000;
+    contdecisiones = 1;
 
     //Instrucciones
     printf("Instrucciones\n");
     clearOnKey();
 
     
-    while(/*condicion para NO perder*/ 1, && contdecisiones<=7)
+    while(/*condicion para NO perder*/ 1 && contdecisiones <= 7)
     {
         //Generar una distancia aleatoria al objeto
 
@@ -54,7 +56,6 @@ void main()
                     printf("Que desea hacer?\n");
                     printf("Presione[E] para esquivar o [D] para destruir\n");
                     op = getch();
-                    contdecisiones+=1;
 
                     switch (op)
                     {
@@ -101,7 +102,6 @@ void main()
                     printf("Que desea hacer.\n");
                     printf("Presione [E] para esquivar y [S] para seguir adelante\n");
                     op = getch();
-                    contdecisiones+=1;
 
                     switch (op)
                     {
@@ -133,7 +133,6 @@ void main()
                     printf("Que desea hacer.\n");
                     printf("Presione [C] para capturar y [E] para esquivar\n");
                     op = getch();
-                    contdecisiones+=1;
 
                     switch (op)
                     {
@@ -161,6 +160,7 @@ void main()
                 break;
         }
 
+        contdecisiones++;
         clearOnKey();
     } 
 }
