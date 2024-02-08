@@ -12,7 +12,7 @@ void main()
     //La función time() nos permite que sea más aleatorio el número
     srand(time(0));
 
-    int vida, misiles, distancia, velocidad;
+    int vida, misiles, distancia, velocidad, contdecisiones;
     char op;
 
     /********************
@@ -26,7 +26,7 @@ void main()
     clearOnKey();
 
     
-    while(/*condicion para NO perder*/ 1 /*contador de tiempo u obstáculos*/)
+    while(/*condicion para NO perder*/ 1, && contdecisiones<=7)
     {
         //Generar una distancia aleatoria al objeto
 
@@ -54,6 +54,7 @@ void main()
                     printf("Que desea hacer?\n");
                     printf("Presione[E] para esquivar o [D] para destruir\n");
                     op = getch();
+                    contdecisiones+=1;
 
                     switch (op)
                     {
@@ -100,6 +101,7 @@ void main()
                     printf("Que desea hacer.\n");
                     printf("Presione [E] para esquivar y [S] para seguir adelante\n");
                     op = getch();
+                    contdecisiones+=1;
 
                     switch (op)
                     {
@@ -131,6 +133,7 @@ void main()
                     printf("Que desea hacer.\n");
                     printf("Presione [C] para capturar y [E] para esquivar\n");
                     op = getch();
+                    contdecisiones+=1;
 
                     switch (op)
                     {
