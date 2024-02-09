@@ -177,5 +177,15 @@ void main()
         contdecisiones++;
         clearOnKey();
     } 
+    //condicion que compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
+    if (totmisiles>=7800 && totcaps>=1900)
+    {
+        printf("Ganaste el nivel 1\n");
+    }
+    else 
+    {
+        printf("Perdiste\n");
+    }
+
 }
 
