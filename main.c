@@ -25,12 +25,8 @@ void main()
 
     //Instrucciones
     printf("Instrucciones\n");
-    printf("En este juego podras realizar diferentes jugadas, apsando asi los niveles con cierto numero de movimientos;pues en el momento en que los movimiento se acaben perdera el juego\n")
-    printf("En el nivel 1 podras realizar diferentes acciones con ciertas condiciones:\n la velocidad inicial de la nave es de 12,000 km por hora\n Inicia con 2000 caps. de vida y 8000 misiles\n Si la distancia entre la nave y el planeta es de 8000 y 10,000 se puede evadir el planeta\n 
-    Si la distancia entre un planeta y la nave es menor a 8000 la nave choca y pierde el juego\n Si la distancia entre la nave y el planeta está arriba de 10,000 la nave sigue su camino\n Si la distancia entre nave y objeto de interés es menor o igual a 6000 km 
-    se ganan 5 caps. de vida (No importa velocidad)\n si no se cumplen las condiciones se pierden 3 capsulas de vida\n La nave puede destruir planetas s/v si distancia es igual o mayor a 8000 km\n
-    Por cada planeta destruido se pierden 25 caps. de vida y 50 misiles\n Al intentar destruir un planeta sin respetar las condiciones se pierden 15 caps. y 30 misiles\n Ganas si tus misiles son >= 7800 y tienes >=1900 caps. de vida\n
-    Pierde si tus misiles son <7800 o tus caps. de vida son <1900 ")
+    printf("En este juego podras realizar diferentes jugadas, pasando asi los niveles con cierto numero de movimientos; pues en el momento en que los movimiento se acaben perdera el juego\n");
+    printf("En el nivel 1 podras realizar diferentes acciones con ciertas condiciones:\nInicia con 2000 caps. de vida y 8000 misiles\nSi la distancia entre la nave y el planeta es de 8000 y 10,000 se debe evadir el planeta\nSi la distancia entre un planeta y la nave es menor a 8000 la nave choca y pierde el juego\nSi la distancia entre la nave y el planeta esta arriba de 10,000 km la nave sigue su camino\nSi la distancia entre nave y objeto de interes es menor o igual a 6000 km se ganan 5 caps. de vida (No importa la velocidad)\nSi no se cumplen las condiciones se pierden 3 capsulas de vida\nLa nave puede destruir planetas sin vida si la distancia es igual o mayor a 8000 km\nPor cada planeta destruido se pierden 25 caps. de vida y 50 misiles\nAl intentar destruir un planeta sin respetar las condiciones se pierden 15 caps. y 30 misiles\nPierdes si tus misiles son < 7800 o tus caps. de vida son < 1900\n");
     clearOnKey();
 
     
@@ -42,9 +38,9 @@ void main()
         velocidad = (rand() % 15 + 1) * 1000;
 
         //Display
-        printf(MAGENTA "Vida restante: %d \n",vida);
-        printf(CYAN "Tu velocidad es: %d \n", velocidad);
-        printf(YELLOW "Misiles restantes: %d \n", misiles);
+        printf(MAGENTA "CAPS. VIDA: %d  ",vida);
+        printf(WHITE "|" CYAN "  VELOCIDAD: %d km/h  ", velocidad);
+        printf(WHITE "|" YELLOW "    MISILES: %d\n", misiles);
 
         printf(RESET);	
 
@@ -70,8 +66,10 @@ void main()
                             if (distancia > 8000)
                                 printf("Se esquivo el planeta.\n");
                             else
+                            {
                                 printf("Se ha estrellado con el planeta\n");
                                 vida = 0;
+                            }
                             break;
                         case 'D': case 'd': 
                             if (distancia<=8000 && velocidad >= 12000)
@@ -118,8 +116,10 @@ void main()
                             if (distancia > 8000)
                                 printf("Se esquivo el planeta.\n");
                             else
+                            {
                                 printf("Se ha estrellado con el planeta\n");
                                 vida = 0;
+                            }     
                             break;
                         case 's': case 'S': 
                             if (distancia <= 8000 || (distancia > 8000 && distancia < 10000 && velocidad >= 12000))
@@ -129,7 +129,7 @@ void main()
                             }
                             else
                             {
-                                printf("Siga adelante");
+                                printf("Siga adelante\n");
                             }
                             break;
                         default:
