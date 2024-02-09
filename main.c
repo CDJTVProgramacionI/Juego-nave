@@ -370,9 +370,8 @@ void main()
     contdecisiones = 1;
 
     //Instrucciones
-    printf("Instrucciones\n");
-    printf("En este juego podras realizar diferentes jugadas, pasando asi los niveles con cierto numero de movimientos; pues en el momento en que los movimiento se acaben perdera el juego\n");
-    printf("En el nivel 1 podras realizar diferentes acciones con ciertas condiciones:\nInicia con 2000 caps. de vida y 8000 misiles\nSi la distancia entre la nave y el planeta es de 8000 y 10,000 se debe evadir el planeta\nSi la distancia entre un planeta y la nave es menor a 8000 la nave choca y pierde el juego\nSi la distancia entre la nave y el planeta esta arriba de 10,000 km la nave sigue su camino\nSi la distancia entre nave y objeto de interes es menor o igual a 6000 km se ganan 5 caps. de vida (No importa la velocidad)\nSi no se cumplen las condiciones se pierden 3 capsulas de vida\nLa nave puede destruir planetas sin vida si la distancia es igual o mayor a 8000 km\nPor cada planeta destruido se pierden 25 caps. de vida y 50 misiles\nAl intentar destruir un planeta sin respetar las condiciones se pierden 15 caps. y 30 misiles\nPierdes si tus misiles son < 7800 o tus caps. de vida son < 1900\n");
+    printf("NIVEL 3 instrucciones\n");
+    printf("Inicias con 1500 caps. de vida y 7400 misiles\nSi la distancia entre la nave y el hoyo negro es de 4,000 km y 6,000 km se debe evadir\nSi la distancia entre un hoyo negro y la nave es menor a 4000 km la nave chocara si intenta esquivar y pierde el juego\nSi la distancia entre la nave y el hoyo negro esta arriba de 10,000 km la nave sigue su camino\nSi la distancia entre nave y objeto de interes es menor o igual a 2000 km se ganan 15 caps. de vida (No importa la velocidad)\nSi no se cumplen las condiciones se pierden 35 capsulas de vida\nLa nave puede destruir hoyos negros si la distancia es igual o mayor a 4000 km y su velocidad supera los 28,000 km/h\nPor cada planeta destruido se pierden 35 caps. de vida y 80 misiles\nAl intentar destruir un planeta sin respetar las condiciones se pierden 30 caps. y 50 misiles\nPierdes si tus misiles son < 6900 o tus caps. de vida son < 1000\n");
     clearOnKey();
 
     
