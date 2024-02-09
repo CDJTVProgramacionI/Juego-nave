@@ -25,6 +25,12 @@ void main()
 
     //Instrucciones
     printf("Instrucciones\n");
+    printf("En este juego podras realizar diferentes jugadas, apsando asi los niveles con cierto numero de movimientos;pues en el momento en que los movimiento se acaben perdera el juego\n")
+    printf("En el nivel 1 podras realizar diferentes acciones con ciertas condiciones:\n la velocidad inicial de la nave es de 12,000 km por hora\n Inicia con 2000 caps. de vida y 8000 misiles\n Si la distancia entre la nave y el planeta es de 8000 y 10,000 se puede evadir el planeta\n 
+    Si la distancia entre un planeta y la nave es menor a 8000 la nave choca y pierde el juego\n Si la distancia entre la nave y el planeta está arriba de 10,000 la nave sigue su camino\n Si la distancia entre nave y objeto de interés es menor o igual a 6000 km 
+    se ganan 5 caps. de vida (No importa velocidad)\n si no se cumplen las condiciones se pierden 3 capsulas de vida\n La nave puede destruir planetas s/v si distancia es igual o mayor a 8000 km\n
+    Por cada planeta destruido se pierden 25 caps. de vida y 50 misiles\n Al intentar destruir un planeta sin respetar las condiciones se pierden 15 caps. y 30 misiles\n Ganas si tus misiles son >= 7800 y tienes >=1900 caps. de vida\n
+    Pierde si tus misiles son <7800 o tus caps. de vida son <1900 ")
     clearOnKey();
 
     
