@@ -19,7 +19,7 @@ void main()
     *      NIVEL 1      * 
     *********************/                  
     //Valores iniciales de vidas, velocidad y misiles
-    vida = 2000,
+    vida = 2000;
     misiles = 8000;
     contdecisiones = 1;
 
@@ -192,7 +192,7 @@ void main()
     *      NIVEL 2      * 
     *********************/                  
     //Valores iniciales de vidas, velocidad y misiles
-    vida = 2000,
+    vida = 2000;
     misiles = 8000;
     contdecisiones = 1;
 
@@ -365,7 +365,7 @@ void main()
     *      NIVEL 3      * 
     *********************/                  
     //Valores iniciales de vidas, velocidad y misiles
-    vida = 2000,
+    vida = 2000;
     misiles = 8000;
     contdecisiones = 1;
 
