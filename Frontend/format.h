@@ -45,7 +45,7 @@ void setupConsole()
 
     if(!SetConsoleMode(stdoutHandle, outMode)) {
         exit(GetLastError());
-    }   
+    }
 }
 
 //Show all the posible colors
