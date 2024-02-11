@@ -21,6 +21,36 @@ void main()
     const int MAXDIST[3] = {10000, 8000, 6000}, MAXVEL[3] = {12000, 20000, 28000};
 
     //Pantalla principal
+    printf(" ______     ______     __   __   ______           __    __     ______     ______     ______\n");    
+    printf("/\\  ___\\   /\\  __ \\   /\\ \\ / /  /\\  ___\\         /\\ \"-./  \\   /\\  __ \\   /\\  == \\   /\\  ___\\\n");   
+    printf("\\ \\___  \\  \\ \\  __ \\  \\ \\ \\'/   \\ \\  __\\         \\ \\ \\-./\\ \\  \\ \\  __ \\  \\ \\  __<   \\ \\___  \\\n");  
+    printf(" \\/\\_____\\  \\ \\_\\ \\_\\  \\ \\__|    \\ \\_____\\        \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\  \\ \\_\\ \\_\\  \\/\\_____\\\n"); 
+    printf("  \\/_____/   \\/_/\\/_/   \\/_/      \\/_____/         \\/_/  \\/_/   \\/_/\\/_/   \\/_/ /_/   \\/_____/\n\n"); 
+                                                                                               
+
+    printf("                                            @@@@\n");
+    printf("                                          @@@@@@@@\n");
+    printf("                                          @@....@@\n");
+    printf("                                         @@@.....@@\n");
+    printf("                                         @@.@@@@.@@\n");
+    printf("                                       @@@@......@@@@\n");
+    printf("                                     @@@@@@@@@@@@@@@@@@              PROGRAMACION I\n");
+    printf("                                     @@@@.@......@.@@@@       Primer examen departamental\n");
+    printf("                                     @@@@.@......@.@@@@             Huerta Johana\n");
+    printf("                                     @@@@.@@@@@@@@.@@@@             Garcia Viridiana\n");
+    printf("                                   @@@@@..@......@..@@@@@           Garcia Tania\n");
+    printf("                                  @@@@@...@.@..@.@....@@@@@         Gomez Camila\n");
+    printf("                                 @@@@@....@.@..@.@.....@@@@         Rosas Daniel\n");
+    printf("                               @@@@@......@.@..@.@......@@@@@\n");
+    printf("                             @@@@@........@......@........@@@@@\n");
+    printf("                             @@@@.........@@@@@@@@.........@@@@\n");
+    printf("                             @@@@....@@..@@@@@@@@@@..@@....@@@@\n");
+    printf("                              @@.@@@@@@.@....@@....@.@@@@@@.@@\n");
+    printf("                              @@@@@@@@@@@....@@....@.@@@@@@@@@\n");
+    printf("                                       @@@@@@@@@@@@@@\n");
+
+    clearOnKey();
+
     //Instrucciones
     printf("Instrucciones\n");
     printf("En este juego podras realizar diferentes jugadas, esquivar, atacar o capturar\n");
@@ -35,15 +65,29 @@ void main()
 
         //Instrucciones de nivel
         printf("NIVEL %d\n", nivel + 1);
-        printf("Inicia con %d caps. de vida y %d misiles\n", MAXVIDAS[nivel], MAXMISILES[nivel]);
-        printf("Si la distancia entre la nave y un planeta esta entre %d y %d km se DEBE evadir el planeta\n", MAXDIST[nivel] - 2000, MAXDIST[nivel]);
-        printf("Si la distancia entre un planeta y la nave es menor a %d km la nave choca y pierde el juego\n", MAXDIST[nivel] - 2000);
-        printf("Si la distancia entre la nave y el planeta es mayor a %d km la nave sigue su camino\n", MAXDIST[nivel]);
+        printf("En este nivel, te enfrentaras a:\n");
+        switch(nivel)
+        {
+            case 0: 
+                printf("Los " BRIGHT_GREEN "PLANETAS CON VIDA " WHITE "que no pueden ser destruidos\n");
+                printf("y los " BRIGHT_BLUE "PLANETAS SIN VIDA " WHITE "que pueden ser destruidos.\n");
+                break;
+            case 1:
+                printf("Los " BLUE "ASTEROIDES\n");
+                break;
+            case 2:
+                printf("Los " PURPLE "HOYOS NEGROS\n");
+                break;
+        }
+        printf(WHITE "Iniciaras con %d caps. de vida y %d misiles\n", MAXVIDAS[nivel], MAXMISILES[nivel]);
+        printf("Si la distancia entre la nave y un obstaculo esta entre %d y %d km se DEBE evadir el obstaculo\n", MAXDIST[nivel] - 2000, MAXDIST[nivel]);
+        printf("Si la distancia entre un obstaculo y la nave es menor a %d km la nave choca y pierde el juego\n", MAXDIST[nivel] - 2000);
+        printf("Si la distancia entre la nave y el obstaculo es mayor a %d km la nave sigue su camino\n", MAXDIST[nivel]);
         printf("Si la distancia entre nave y objeto de interes es menor o igual a %d km se ganan %d caps. de vida (No importa la velocidad)\n", MAXDIST[nivel] - 4000, CAPSULAS[nivel]);
         printf("    - Si no se cumplen las condiciones se pierden %d capsulas de vida\n", CAPSULAS[nivel]);
-        printf("La nave puede destruir planetas sin vida si la distancia es igual o menor a %d km\n", MAXDIST[nivel] - 2000);
-        printf("    - Por cada planeta destruido se pierden %d caps. de vida y %d misiles\n", DESTVIDAS[nivel], DESTMISILES[nivel]);
-        printf("    - Al intentar destruir un planeta sin respetar las condiciones se pierden %d caps. y %d misiles\n", NODESTVIDAS[nivel], NODESTMISILES[nivel]);
+        printf("La nave puede destruir obstaculos si la distancia es igual o menor a %d km\n", MAXDIST[nivel] - 2000);
+        printf("    - Por cada obstaculo destruido se pierden %d caps. de vida y %d misiles\n", DESTVIDAS[nivel], DESTMISILES[nivel]);
+        printf("    - Al intentar destruir un obstaculo sin respetar las condiciones se pierden %d caps. y %d misiles\n", NODESTVIDAS[nivel], NODESTMISILES[nivel]);
         printf("Pierdes si tienes menos de %d misiles o menos de %d caps. de vida\n", MAXMISILES[nivel + 1], MAXVIDAS[nivel + 1]);
         clearOnKey();
 
@@ -204,11 +248,11 @@ void main()
                 printf("\e[1;1H\e[2J"); //Borrar pantalla
 
                 if(op != 's' && op != 'S' && op != 'N' && op != 'n')
-                    printf("No presiono una opcion correcta");
+                    printf("No presiono una opcion correcta\n");
             } while (op != 's' && op != 'S' && op != 'N' && op != 'n');
         } 
     }
-    while(op == 's' || op == 'S' && nivel < 3);
+    while((op == 's' || op == 'S') && nivel < 3);
 
     printf("FIN DEL JUEGO\n");  
     clearOnKey();
