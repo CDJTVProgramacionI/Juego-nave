@@ -254,7 +254,7 @@ void main()
         {
             //Asteroide
             case 0:
-                printf("Un " BLUE "ASTEROIDE" WHITE "se encuentra a %d km de distancia\n", distancia);
+                printf("Un " BLUE "ASTEROIDE " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
                 {
@@ -524,4 +524,3 @@ void main()
         printf("Perdiste\n");
     }
 }
-
