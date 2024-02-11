@@ -81,7 +81,7 @@ void main()
         {
             //Planeta sin vida
             case 0:
-                printf("Un " BLUE "PLANETA SIN VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
+                printf("Un " BRIGHT_BLUE "PLANETA SIN VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
                 {
@@ -170,7 +170,7 @@ void main()
                 break;
             //Objeto de interés
             case 2:
-                printf("Un " MAGENTA "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
+                printf("Un " BRIGHT_RED "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
                 {
@@ -302,49 +302,9 @@ void main()
                     }
                 }while (op != 'e' && op != 'E' && op != 'D' && op != 'd');
                 break;
-            //Planeta con vida
-            /*case 1:
-                printf("Un " BRIGHT_GREEN "PLANETA CON VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
-                //Obtener input del usuario
-                do
-                {
-                    printf("Que desea hacer.\n");
-                    printf("Presione [E] para esquivar y [S] para seguir adelante\n");
-                    op = getch();
-
-                    switch (op)
-                    {
-                        //Decisiones para evitar o destruir obstáculos
-                        case 'e': case 'E':
-                            if (distancia > 8000)
-                                printf("Se esquivo el planeta.\n");
-                            else
-                            {
-                                printf("Se ha estrellado con el planeta\n");
-                                vida = 0;
-                            }     
-                            break;
-                        case 's': case 'S': 
-                            if (distancia <= 8000 || (distancia > 8000 && distancia < 10000 && velocidad >= 12000))
-                            {
-                                printf("Se ha estrellado con el planeta\n");
-                                vida = 0;
-                            }
-                            else
-                            {
-                                printf("Siga adelante\n");
-                            }
-                            break;
-                        default:
-                            printf("No presiono una opcion correcta.\n");
-                            break;
-                    }
-                } while (op != 'e' && op != 'E' && op != 'S' && op != 's');
-                break;
-                */
             //Objeto de interés
             case 1:
-                printf("Un " MAGENTA "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
+                printf("Un " BRIGHT_RED "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
                 {
@@ -385,7 +345,7 @@ void main()
     //Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
     if (misiles >= 7400 && vida >= 1500)
     {
-        printf("Ganaste el nivel 1\n");
+        printf("Ganaste el nivel 2\n");
     }
     else 
     {
@@ -516,7 +476,7 @@ void main()
                 break;
             //Objeto de interés
             case 2:
-                printf("Un " MAGENTA "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
+                printf("Un " BRIGHT_RED "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
                 {
@@ -557,7 +517,7 @@ void main()
     //Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
     if (misiles >= 7800 && vida >= 1900)
     {
-        printf("Ganaste el nivel 1\n");
+        printf("Ganaste el nivel 3\n");
     }
     else 
     {
