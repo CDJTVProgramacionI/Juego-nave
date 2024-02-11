@@ -356,8 +356,8 @@ void main()
     *      NIVEL 3      * 
     *********************/                  
     //Valores iniciales de vidas, velocidad y misiles
-    vida = 2000;
-    misiles = 8000;
+    vida = 1500;
+    misiles = 7400;
     contdecisiones = 1;
 
     //Instrucciones
@@ -399,33 +399,31 @@ void main()
                     {
                         //Decisiones para evitar o destruir obstáculos
                         case 'E': case 'e':
-                            if (distancia > 8000)
+                            if (distancia > 4000 && distancia < 6000 && velocidad > 28000 )   //Opcion de seguir con  el viaje 
                                 printf("Se esquivo el planeta.\n");
-                            else
+                            else if (distancia<=4000)
                             {
                                 printf("Se ha estrellado con el planeta\n");
                                 vida = 0;
                             }
                             break;
                         case 'D': case 'd': 
-                            if (distancia<=8000 && velocidad >= 12000)
+                            if (distancia<=4000 && velocidad >= 28000)
                             {
                                 printf("Se destruyo el planeta.\n");
-                                vida -= 25;
-                                misiles -= 50;
+                                vida -= 35;
+                                misiles -= 80;
                             }
-                            else
+                            else if (distancia>4000 && velocidad< 28000)
                             {
-                                if(distancia > 8000 && distancia <= 10000 && velocidad >= 12000)
-                                {
                                     printf("Debiste haber esquivado\n");
                                     vida = 0;
-                                }
-                                else
+                             }
+                                else 
                                 {
                                     printf("No has podido destruir el planeta\n");
-                                    vida -= 15;
-                                    misiles -= 30;
+                                    vida -= 30;
+                                    misiles -= 50;
                                 }
                             }
                             break;
@@ -436,6 +434,7 @@ void main()
                 }while (op != 'e' && op != 'E' && op != 'D' && op != 'd');
                 break;
             //Planeta con vida
+            //Al parecer aqui no necesitamos planetas con vida
             case 1:
                 printf("Un " BRIGHT_GREEN "PLANETA CON VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
@@ -488,15 +487,15 @@ void main()
                     {
                         //Decisiones para capturar o esquivar
                         case 'c': case 'C':
-                            if(distancia <= 6000)
+                            if(distancia <= 2000)
                             {
                                 printf("Objeto capturado\n");
-                                vida += 5;
+                                vida += 15;
                             }
                             else
                             {
                                 printf("Objeto no capturado\n");
-                                vida -= 3;
+                                vida -= 35;
                             }
                         break;
                         case 'e': case 'E':
@@ -515,7 +514,7 @@ void main()
     } 
 
     //Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
-    if (misiles >= 7800 && vida >= 1900)
+    if (misiles >= 6900 && vida >= 1000)
     {
         printf("Ganaste el nivel 3\n");
     }
