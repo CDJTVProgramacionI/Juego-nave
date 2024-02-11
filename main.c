@@ -152,7 +152,7 @@ void main()
                             }     
                             break;
                         case 's': case 'S': 
-                            if (distancia <= 8000 || (distancia > 8000 && distancia < 10000 && velocidad >= 12000))
+                            if (distancia <= 8000 || (distancia > 8000 && distancia <= 10000 && velocidad >= 12000))
                             {
                                 printf("Se ha estrellado con el planeta\n");
                                 vida = 0;
@@ -222,8 +222,8 @@ void main()
     *      NIVEL 2      * 
     *********************/                  
     //Valores iniciales de vidas, velocidad y misiles
-    vida = 2000;
-    misiles = 8000;
+    vida = 1900;
+    misiles = 7800;
     contdecisiones = 1;
 
     //Instrucciones
@@ -233,7 +233,7 @@ void main()
     clearOnKey();
 
     
-    while(misiles >= 7800 && vida >= 1900 && contdecisiones <= 7)
+    while(misiles >= 7400 && vida >= 1500 && contdecisiones <= 7)
     {
         //Generar una distancia aleatoria al objeto
 
@@ -248,13 +248,13 @@ void main()
         printf(RESET);	
 
         //Generar objeto u obstáculo al azar
-        int objeto = rand() % 3;
+        int objeto = rand() % 2;
 
         switch(objeto)
         {
-            //Planeta sin vida
+            //Asteroide
             case 0:
-                printf("Un " BLUE "PLANETA SIN VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
+                printf("Un " BLUE "ASTEROIDE" WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
                 {
@@ -266,33 +266,33 @@ void main()
                     {
                         //Decisiones para evitar o destruir obstáculos
                         case 'E': case 'e':
-                            if (distancia > 8000)
-                                printf("Se esquivo el planeta.\n");
+                            if (distancia > 6000)
+                                printf("Se esquivo el asteroide.\n");
                             else
                             {
-                                printf("Se ha estrellado con el planeta\n");
+                                printf("Se ha estrellado con el asteroide\n");
                                 vida = 0;
                             }
                             break;
                         case 'D': case 'd': 
-                            if (distancia<=8000 && velocidad >= 12000)
+                            if (distancia<=6000 && velocidad >= 20000)
                             {
-                                printf("Se destruyo el planeta.\n");
-                                vida -= 25;
-                                misiles -= 50;
+                                printf("Se destruyo el asteroide.\n");
+                                vida -= 30;
+                                misiles -= 60;
                             }
                             else
                             {
-                                if(distancia > 8000 && distancia <= 10000 && velocidad >= 12000)
+                                if(distancia > 6000 && distancia <= 8000 && velocidad >= 20000)
                                 {
                                     printf("Debiste haber esquivado\n");
                                     vida = 0;
                                 }
                                 else
                                 {
-                                    printf("No has podido destruir el planeta\n");
-                                    vida -= 15;
-                                    misiles -= 30;
+                                    printf("No has podido destruir el asteroide\n");
+                                    vida -= 20;
+                                    misiles -= 40;
                                 }
                             }
                             break;
@@ -303,7 +303,7 @@ void main()
                 }while (op != 'e' && op != 'E' && op != 'D' && op != 'd');
                 break;
             //Planeta con vida
-            case 1:
+            /*case 1:
                 printf("Un " BRIGHT_GREEN "PLANETA CON VIDA " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
@@ -341,8 +341,9 @@ void main()
                     }
                 } while (op != 'e' && op != 'E' && op != 'S' && op != 's');
                 break;
+                */
             //Objeto de interés
-            case 2:
+            case 1:
                 printf("Un " MAGENTA "OBJETO DE INTERES " WHITE "se encuentra a %d km de distancia\n", distancia);
                 //Obtener input del usuario
                 do
@@ -355,19 +356,19 @@ void main()
                     {
                         //Decisiones para capturar o esquivar
                         case 'c': case 'C':
-                            if(distancia <= 6000)
+                            if(distancia <= 4000)
                             {
                                 printf("Objeto capturado\n");
-                                vida += 5;
+                                vida += 10;
                             }
                             else
                             {
                                 printf("Objeto no capturado\n");
-                                vida -= 3;
+                                vida -= 7;
                             }
                         break;
                         case 'e': case 'E':
-                            printf("Esquivaste la capsula\n");
+                            printf("Esquivaste el objeto\n");
                             break;
                         default:
                             printf("No presiono una opcion correcta.\n");
@@ -382,7 +383,7 @@ void main()
     } 
 
     //Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
-    if (misiles >= 7800 && vida >= 1900)
+    if (misiles >= 7400 && vida >= 1500)
     {
         printf("Ganaste el nivel 1\n");
     }
