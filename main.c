@@ -91,51 +91,7 @@ void main()
         printf("Pierdes si tienes menos de %d misiles o menos de %d caps. de vida\n", MAXMISILES[nivel + 1], MAXVIDAS[nivel + 1]);
         clearOnKey();
 
-
-    while(misiles >= MAXMISILES[nivel + 1] && vida >= MAXVIDAS[nivel + 1] && contdecisiones <= 7)
-    //Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
-    if (misiles >= 7800 && vida >= 1900)
-    {
-        printf("Ganaste el nivel 1\n");
-    }
-    else 
-    {
-        printf("Perdiste\n");
-    }
-
-    /********************
-    *      NIVEL 2      * 
-    *********************/                  
-    //Valores iniciales de vidas, velocidad y misiles
-    vida = 1900;
-    misiles = 7800;
-    contdecisiones = 1;
-
-    //Instrucciones
-    printf("Instrucciones\n");
-    printf("En este juego podras realizar diferentes jugadas, pasando asi los niveles con cierto numero de movimientos; pues en el momento en que los movimiento se acaben perdera el juego\n");
-    printf("En el nivel 2 podras realizar diferentes acciones con ciertas condiciones:\nLa nave comienza con 1900 cápsulas de vida y 7800 misiles\nSi la distancia entre la nave y los asteroides está entre 6000 y 8000 km y la velocidad de la nave es mayor a 20000 km/h la nave debe evadir los asteroides\nSi la distancia es de 6000km o menos (sin importar la velocidad) la nave choca con el asteroide y pierde el juego\nSi la distancia es de 8000km o más (sin importar la velocidad) la nave continúa su viaje\nPor cada objeto capturado (si la distancia entre la nave y el objeto no excede los 4000 km) la nave gana 10 cápsulas de vida. Pero recibe una PENALIZACIÓN de 7 cápsulas de vida si intenta capturar los objetos sin cumplir las condiciones necesarias\nLa nave puede destruir asteroides si la distancia entre la nave y el asteroide es igual o menor a 6000 km y la velocidad de la nave es de 20000 km/h o mas\nPor cada asteroide destruido la nave pierde 30 cápsulas de vida y 60 misiles.Intentar destruir un asteroide sin cumplir los requisitos necesarios resulta en una penalización de 20 cápsulas de vida y 40 misiles\nSe supera el nivel si la nave queda con al menos 7400 misiles y al menos 1500 cápsulas de vida\nEl jugador pierde si la nave tiene menos de 7400 misiles o menos de 1500 cápsulas de vida\n");
-    clearOnKey();
-
-    
-    while(misiles >= 7400 && vida >= 1500 && contdecisiones <= 7)
-    {
-        //Generar una distancia aleatoria al objeto
-
-        distancia = (rand() % 12 + 1) * 1000;
-        velocidad = (rand() % 15 + 1) * 1000;
-
-        //Display
-        printf(MAGENTA "CAPS. VIDA: %d  ",vida);
-        printf(WHITE "|" CYAN "  VELOCIDAD: %d km/h  ", velocidad);
-        printf(WHITE "|" YELLOW "    MISILES: %d\n", misiles);
-
-        printf(RESET);	
-
-        //Generar objeto u obstáculo al azar
-        int objeto = rand() % 2;
-
-        switch(objeto)
+        while(misiles >= MAXMISILES[nivel + 1] && vida >= MAXVIDAS[nivel + 1] && contdecisiones <= 7)
         {
             //Generar una distancia y velocidad aleatoria
             distancia = (rand() % 15 + 1) * 1000;
