@@ -1,13 +1,52 @@
-#include "Frontend\format.h"
+#include <Windows.h>
 #include <stdio.h>
 #include <string.h>
 #include <conio.h>
 #include <time.h>
 
+#define BLACK "\e[30m"
+#define RED "\e[31m"
+#define GREEN "\e[32m"
+#define YELLOW "\e[33m"
+#define BLUE "\e[34m"
+#define PURPLE "\e[35m"
+#define AQUA "\e[36m"
+#define BRIGHT_GRAY "\e[37m"
+#define GRAY "\e[90m"
+#define BRIGHT_RED "\e[91m"
+#define BRIGHT_GREEN "\e[92m"
+#define BRIGHT_YELLOW "\e[93m"
+#define BRIGHT_BLUE "\e[94m"
+#define MAGENTA "\e[95m"
+#define CYAN "\e[96m"
+#define WHITE "\e[97m"
+#define RESET "\e[0m"
+
+static HANDLE stdoutHandle;
+static DWORD outModeInit;
+
 void main()
 {
-    //Función para que la consola de windows acepte colores
-    setupConsole();
+    //La consola de windows acepte colores
+    DWORD outMode = 0;
+    stdoutHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    if(stdoutHandle == INVALID_HANDLE_VALUE) {
+        exit(GetLastError());
+    }
+    
+    if(!GetConsoleMode(stdoutHandle, &outMode)) {
+        exit(GetLastError());
+    }
+
+    outModeInit = outMode;
+    
+    // Enable ANSI escape codes
+    outMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+
+    if(!SetConsoleMode(stdoutHandle, outMode)) {
+        exit(GetLastError());
+    }
     
     //Establecer la semilla para números aleatorios
     //La función time() nos permite que sea más aleatorio el número
@@ -16,8 +55,8 @@ void main()
     int vida, misiles, distancia, velocidad, contdecisiones, objeto, planeta, nivel = 0;
     char op, obstaculo[25];
     const int MAXVIDAS[4] = {2000, 1900, 1500, 1000}, MAXMISILES[4] = {8000, 7800, 7400, 6900};
-    const int DESTMISILES[3] = {50, 20, 80}, DESTVIDAS[3] = {25, 30, 35}, CAPSULAS[3] = {5, 10, 55};
-    const int NODESTMISILES[3] = {30, 40, 50}, NODESTVIDAS[3] = {50, 60, 30}, NOCAPSULAS[3] = {3, 7, 35};
+    const int DESTMISILES[3] = {50, 60, 80}, DESTVIDAS[3] = {25, 30, 35}, CAPSULAS[3] = {5, 10, 15};
+    const int NODESTMISILES[3] = {30, 40, 50}, NODESTVIDAS[3] = {15, 20, 30}, NOCAPSULAS[3] = {3, 7, 35};
     const int MAXDIST[3] = {10000, 8000, 6000}, MAXVEL[3] = {12000, 20000, 28000};
 
     //Pantalla principal
@@ -49,12 +88,16 @@ void main()
     printf("                              @@@@@@@@@@@....@@....@.@@@@@@@@@\n");
     printf("                                       @@@@@@@@@@@@@@\n");
 
-    clearOnKey();
+    printf(WHITE "Presiona enter para continuar...");
+    getch();
+    printf("\e[1;1H\e[2J");
 
     //Instrucciones
     printf("Instrucciones\n");
     printf("En este juego podras realizar diferentes jugadas, esquivar, atacar o capturar\n");
-    clearOnKey();
+    printf(WHITE "Presiona enter para continuar...");
+    getch();
+    printf("\e[1;1H\e[2J");
 
     do
     {
@@ -89,7 +132,9 @@ void main()
         printf("    - Por cada obstaculo destruido se pierden %d caps. de vida y %d misiles\n", DESTVIDAS[nivel], DESTMISILES[nivel]);
         printf("    - Al intentar destruir un obstaculo sin respetar las condiciones se pierden %d caps. y %d misiles\n", NODESTVIDAS[nivel], NODESTMISILES[nivel]);
         printf("Pierdes si tienes menos de %d misiles o menos de %d caps. de vida\n", MAXMISILES[nivel + 1], MAXVIDAS[nivel + 1]);
-        clearOnKey();
+        printf(WHITE "Presiona enter para continuar...");
+        getch();
+        printf("\e[1;1H\e[2J");
 
         while(misiles >= MAXMISILES[nivel + 1] && vida >= MAXVIDAS[nivel + 1] && contdecisiones <= 7)
         {
@@ -153,7 +198,7 @@ void main()
                             break;
                         //Destruir un obstáculo
                         case 'D': case 'd': 
-                            if(nivel == 0 && planeta == 1) //Un planeta sin vida, no se puede destruir
+                            if(nivel == 0 && planeta == 1) //Un planeta con vida, no se puede destruir
                             {
                                 printf("Se ha estrellado con el %s\n", obstaculo);
                                 vida = 0;
@@ -223,7 +268,9 @@ void main()
             }
 
             contdecisiones++;
-            clearOnKey();
+            printf(WHITE "Presiona enter para continuar...");
+            getch();
+            printf("\e[1;1H\e[2J");
         } 
 
         //Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
@@ -232,7 +279,9 @@ void main()
             nivel++;
             op = 's';
             printf("Ganaste el nivel %d\n", nivel);
-            clearOnKey();
+            printf(WHITE "Presiona enter para continuar...");
+            getch();
+            printf("\e[1;1H\e[2J");
         }
         else 
         {
@@ -255,5 +304,7 @@ void main()
     while((op == 's' || op == 'S') && nivel < 3);
 
     printf("FIN DEL JUEGO\n");  
-    clearOnKey();
+    printf(WHITE "Presiona enter para continuar...");
+    getch();
+    printf("\e[1;1H\e[2J");
 }
