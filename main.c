@@ -74,7 +74,7 @@ void main()
     printf("                                         @@.@@@@.@@\n");
     printf("                                       @@@@......@@@@\n");
     printf("                                     @@@@@@@@@@@@@@@@@@              PROGRAMACION I\n");
-    printf("                                     @@@@.@......@.@@@@       Primer examen departamental\n");
+    printf("                                     @@@@.@......@.@@@@       Segundo examen departamental\n");
     printf("                                     @@@@.@......@.@@@@             Huerta Johana\n");
     printf("                                     @@@@.@@@@@@@@.@@@@             Garcia Viridiana\n");
     printf("                                   @@@@@..@......@..@@@@@           Garcia Tania\n");
